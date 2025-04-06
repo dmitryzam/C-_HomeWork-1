@@ -23,55 +23,62 @@ namespace ConsoleApp1
             int multy = 1;
             if(args.Length >= 1)
             {
-                if (int.Parse(args[0]) > 1) 
+                if (int.Parse(args[0]) > 1 && int.Parse(args[0]) < 100) 
                 {
-                    for(int i = 1; i < num + 1; i++)
+                    try
                     {
-                        if(i == 1)
+                        for (int i = 1; i < num + 1; i++)
                         {
-                            for(int j = 1; j < num + 1; j++)
+                            if (i == 1)
                             {
-                                if(j == 1)
+                                for (int j = 1; j < num + 1; j++)
                                 {
-                                    result = "\t";
-                                    WriteToFile("out.txt", result);
-                                }
-                                if(j > 1)
-                                {
-                                    result = $"{j}\t";
-                                    WriteToFile("out.txt", result);
-                                }
-                                if(j == num)
-                                {
-                                    result = "\n";
-                                    WriteToFile("out.txt", result);
+                                    if (j == 1)
+                                    {
+                                        result = "\t";
+                                        WriteToFile("out.txt", result);
+                                    }
+                                    if (j > 1)
+                                    {
+                                        result = $"{j}\t";
+                                        WriteToFile("out.txt", result);
+                                    }
+                                    if (j == num)
+                                    {
+                                        result = "\n";
+                                        WriteToFile("out.txt", result);
+                                    }
                                 }
                             }
-                        }
-                        if(i > 1)
-                        {
-                            for (int j = 1; j < num + 1; j++)
+                            if (i > 1)
                             {
-                                if (j == 1)
+                                for (int j = 1; j < num + 1; j++)
                                 {
-                                    result = $"{i}\t";
-                                    WriteToFile("out.txt", result);
-                                }
-                                if (j > 1)
-                                {
-                                    multy = i * j;
-                                    result = $"{multy}\t";
-                                    WriteToFile("out.txt", result);
-                                }
-                                if (j == num)
-                                {
-                                    result = "\n";
-                                    WriteToFile("out.txt", result);
+                                    if (j == 1)
+                                    {
+                                        result = $"{i}\t";
+                                        WriteToFile("out.txt", result);
+                                    }
+                                    if (j > 1)
+                                    {
+                                        multy = i * j;
+                                        result = $"{multy}\t";
+                                        WriteToFile("out.txt", result);
+                                    }
+                                    if (j == num)
+                                    {
+                                        result = "\n";
+                                        WriteToFile("out.txt", result);
+                                    }
                                 }
                             }
                         }
                     }
-                }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }                
             }
             else
             {
